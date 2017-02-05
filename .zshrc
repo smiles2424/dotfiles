@@ -20,7 +20,7 @@ ZSH_THEME="nanotech"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
- export UPDATE_ZSH_DAYS=2
+ export UPDATE_ZSH_DAYS=9
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -64,7 +64,12 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
-   export EDITOR='vim'
+   if hash code; then 
+    export EDITOR='code'
+    else
+    export EDITOR='vim'
+    fi
+    export EDITOR='code'
  else
    export EDITOR='mvim'
  fi
@@ -96,3 +101,10 @@ zstyle :compinstall filename '/home/sam/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# Virtual Env stuff
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+#export PROJECT_HOME=$HOME/
+#export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+#source /usr/local/bin/virtualenvwrapper_lazy.sh
